@@ -1,0 +1,12 @@
+{
+    "domain": "whatsapp-api",
+    "name": "whatsapp-api notifier basde on whatsapp-api and can integrate with whatsapp",
+    "codeowners": [
+    "@amufalo"
+    ],
+    "documentation": "https://github.com/amufalo/whatsapp-api-custom-notifier",
+    "iot_class": "local_polling",
+    "issue_tracker": "https://github.com/amufalo/whatsapp-api-custom-notifier/issues",
+    "requirements": ["requests"],
+    "version": "0.1.0"
+}
