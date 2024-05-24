@@ -1,6 +1,6 @@
 {
     "domain": "whatsapp-api",
-    "name": "whatsapp notifier basde on whatsapp-api",
+    "name": "whatsapp notifier based on whatsapp-api",
     "codeowners": [
     "@amufalo"
     ],
