@@ -15,7 +15,8 @@ docker run -v /docker/sessions:/usr/src/app/sessions \
        chrishubert/whatsapp-web-api:latest
 ```
 
-- Navigate to http://url_from_whatsapp-api/session/start/your_session to start your session. Scan QR Code generated in docker logs.
+- Navigate to http://url_from_whatsapp-api/session/start/your_session to start your session. 
+- Navigate to http://url_from_whatsapp-api/session/qr/your_session/image to get qr code to scan in your app (wait some seconds to get qr code)
 
 configuration.yaml:
 ```yaml
