@@ -38,7 +38,7 @@ class WhatsappApiNotificationService(BaseNotificationService):
             if self.token is None:
                 headers = {}
             else:
-                headers = {"Authorization": "Bearer " + self.token} 
+                headers = {"x-api-key": self.token} 
             response = requests.post(self._url, json=data,headers = headers)
             _LOGGER.info("Message sent")
             response.raise_for_status()
