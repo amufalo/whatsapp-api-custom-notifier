@@ -39,8 +39,11 @@ class WhatsappApiNotificationService(BaseNotificationService):
                 headers = {}
             else:
                 headers = {"x-api-key": self.token} 
-            response = requests.post(self._url, json=data,headers = headers)
-            _LOGGER.info("Message sent")
+            response = requests.post(self._url, json=data,headers = headers)         
             response.raise_for_status()
+            _LOGGER.info("Message sent")
+            
         except requests.exceptions.RequestException as ex:
-            _LOGGER.error("Error sending notification using whatsapp-api: %s", ex)
+            error_response = ex.response.text if ex.response else "No response body"   
+            _LOGGER.error("Error sending notification using whatsapp-api. Payload: %s | Exception: %s | Response: %s",   data, ex, error_response)
+                        
