@@ -26,22 +26,23 @@ class WhatsappApiNotificationService(BaseNotificationService):
         self.token = token
         
     def send_message(self, message="", **kwargs):
-        chatid = kwargs.get(ATTR_TARGET)
+        targets = kwargs.get(ATTR_TARGET)
 
-        data = {
-            
-            "content": message,
-            "contentType": "string",
-            "chatId": chatid
-        }
         try:
             if self.token is None:
                 headers = {}
             else:
                 headers = {"x-api-key": self.token} 
-            response = requests.post(self._url, json=data,headers = headers)         
-            response.raise_for_status()
-            _LOGGER.info("Message sent")
+            for target in targets:            
+                data = {       
+                    "content": message,
+                    "contentType": "string",
+                    "chatId": target
+                }
+
+                response = requests.post(self._url, json=data,headers = headers)         
+                response.raise_for_status()
+                _LOGGER.info("Message sent")
             
         except requests.exceptions.RequestException as ex:
             error_response = ex.response.text if ex.response else "No response body"   
